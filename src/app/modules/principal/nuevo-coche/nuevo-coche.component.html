@@ -1,1 +1,21 @@
-<p>nuevo-coche works!</p>
+<h3>Alta</h3>
+<form class="container">
+  <div class="form-group row w-50">
+    <label for="marcas" class="col-lg-3 col-12">Marca:</label>
+    <select class="col-lg-9 col-12">
+      <option [value]="marca.id" *ngFor="let marca of marcas">{{marca.nombre}}</option>
+    </select>
+  </div>
+  <div class="form-group row w-50">
+    <label for="modelo" class="col-lg-3 col-12">Modelo:</label>
+    <input type="text" class="form-control col-lg-9 col-12" id="modelo" aria-describedby="modelo"
+      placeholder="Introduce el modelo">
+  </div>
+  <div class="form-group row w-50">
+    <label for="matricula" class="col-lg-3 col-12">Matrícula:</label>
+    <input type="text" class="form-control col-lg-9 col-12" id="matricula" placeholder="Introduce la matrícula">
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary px-5">Aceptar</button>
+  </div>
+</form>
