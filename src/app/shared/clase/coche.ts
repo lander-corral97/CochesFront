@@ -1,13 +1,11 @@
 import { Marca } from "./marca";
 
 export class Coche {
-    public id: number;
     public modelo: string;
     public matricula: string;
-    public marca: Marca;
+    public marca: number;
     
-    constructor (id: number, modelo: string, matricula: string, marca: Marca) {
-        this.id = id;
+    constructor (modelo: string, matricula: string, marca: number) {
         this.modelo = modelo;
         this.matricula = matricula;
         this.marca = marca;
