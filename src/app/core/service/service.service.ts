@@ -13,4 +13,8 @@ export class ServiceService {
   getMarcas() : Observable<any> {
     return this.http.get(env.urlBase + 'marcas');
   }
+
+  postCoche(body: any) : Observable<any> {
+    return this.http.post(env.urlBase + 'coches', body);
+  }
 }
