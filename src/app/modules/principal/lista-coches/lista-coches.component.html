@@ -1,1 +1,24 @@
-<p>lista-coches works!</p>
+<h3>Listado</h3>
+<form [formGroup]="marcaForm" (ngSubmit)="redirigir()">
+  <div class="form-group row w-50">
+    <label for="marcas" class="col-lg-3 col-12">Marca:</label>
+    <select id="marcas" formControlName="marcas" class="col-lg-6 col-12" [value]='1'>
+      <option [value]="marca.id" *ngFor="let marca of marcas">{{marca.nombre}}</option>
+    </select>
+    <button type="submit" class="btn btn-primary col-lg-3 col-12">Aceptar</button>
+  </div>
+</form>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Modelo</th>
+        <th scope="col">Matrícula</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coche of coches">
+        <td>{{coche.modelo}}</td>
+        <td>{{coche.matricula}}</td>
+      </tr>
+    </tbody>
+  </table>

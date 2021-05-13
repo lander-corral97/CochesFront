@@ -1,0 +1,23 @@
+
+h3 {
+    color: #4472C4;
+    margin-bottom: 4rem;
+}
+
+table tr td, table tr th {
+    border: 1px solid #FFF;
+}
+
+tr th {
+    background-color: #4472C4;
+    color: #FFF;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #E9EBF5;
+}
+
+tr:nth-child(odd) {
+    background-color: #CFD5EA;
+}
