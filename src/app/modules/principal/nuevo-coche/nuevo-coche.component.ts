@@ -12,10 +12,14 @@ import { Router } from '@angular/router';
 })
 export class NuevoCocheComponent implements OnInit {
 
+  // lista de todas las marcas
   marcas: Marca[] = [];
+  // link para sacar el id de la marca
   linkSelf: string[] = [];
+  // propiedades de la marca
   id: number = 0;
   nombre: string = '';
+  // coche nuevo a meter en la bbdd
   coche: Coche = new Coche('', '', 0);
 
  
@@ -57,7 +61,7 @@ export class NuevoCocheComponent implements OnInit {
 
       this.service.postCoche({modelo: this.coche.modelo, matricula: this.coche.matricula, marca: "http://localhost:8080/marcas/" + this.coche.marca}). subscribe();
 
-      this.router.navigate(['/principal/lista']);
+      this.router.navigate(['/principal/lista/' + this.coche.marca]);
     }
   }
 
