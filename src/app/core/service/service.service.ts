@@ -17,4 +17,8 @@ export class ServiceService {
   postCoche(body: any) : Observable<any> {
     return this.http.post(env.urlBase + 'coches', body);
   }
+
+  getCochesMarca(id: number): Observable<any> {
+    return this.http.get(env.urlBase + 'marcas/' + id + '/coches');
+  }
 }
