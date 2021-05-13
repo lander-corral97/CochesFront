@@ -2,10 +2,6 @@ app-header {
     height: 20vh;
 }
 
-main {
-    height: 80vh;
-}
-
 app-lista-links {
     width: 25%!important;
 }
@@ -17,7 +13,6 @@ app-lista-links {
 .router {
     background-color: #F2F2F2;
     border: 1px solid #6F91BC;
-    height: 80vh;
     width: 75%!important;
 }
 
