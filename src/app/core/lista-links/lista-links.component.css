@@ -1,12 +1,9 @@
 aside {
     background-color: #4472C4;
     border: 1px solid #6F91BC;
-    height: 80vh;
+    height: 100%;
 }
 
-@media (max-width: 767px) {
-    aside { height: 20vh; }
-}
 
 a:focus {
     text-decoration: underline;
