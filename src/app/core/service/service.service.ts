@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { env } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Marca } from 'src/app/shared/clase/marca';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,6 @@ export class ServiceService {
   }
 
   getCochesMarca(id: number): Observable<any> {
-    return this.http.get(env.urlBase + 'marcas/' + id + '/coches');
+    return this.http.get(env.urlBase + 'coches/' + id);
   }
 }
