@@ -40,26 +40,17 @@ export class ListaCochesComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getCochesMarca(this.ruta.snapshot.params.id).subscribe(
-      (datos: any) => {
-        datos._embedded.coches.forEach((coche: any) => {
-          this.marca = this.ruta.snapshot.params.id;
-          this.modelo = coche.modelo;
-          this.matricula = coche.matricula;
-
-          this.coches.push(new Coche(this.modelo, this.matricula, this.marca));
-        })
-
+      (datos: Coche[]) => {
+        datos.forEach((coche: Coche) => {
+          this.coches.push(new Coche(coche.id, coche.modelo, coche.matricula, new Marca(coche.marca.id, coche.marca.nombre)));
+        }) 
       }
     );
     
     this.service.getMarcas().subscribe(
-      (datos: any) => {
-        datos._embedded.marcas.forEach((marcaAny:any) => {
-          this.linkSelf = marcaAny._links.self.href.split('/');
-          this.id = +this.linkSelf[this.linkSelf.length - 1];
-          this.nombre = marcaAny.nombre;
-
-          this.marcas.push(new Marca(this.id, this.nombre));
+      (datos: Marca[]) => {
+        datos.forEach((marca:Marca) => {
+          this.marcas.push(new Marca(marca.id, marca.nombre));
         });
       }
     );

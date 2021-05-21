@@ -20,7 +20,7 @@ export class NuevoCocheComponent implements OnInit {
   id: number = 0;
   nombre: string = '';
   // coche nuevo a meter en la bbdd
-  coche: Coche = new Coche('', '', 0);
+  coche: Coche = new Coche(0, '', '', new Marca(0, ''));
 
  
   nuevoCoche: FormGroup = new FormGroup({});
@@ -29,16 +29,10 @@ export class NuevoCocheComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    console.log(this.nuevoCoche);
-
     this.service.getMarcas().subscribe(
-      (datos: any) => {
-        datos._embedded.marcas.forEach((marcaAny:any) => {
-          this.linkSelf = marcaAny._links.self.href.split('/');
-          this.id = +this.linkSelf[this.linkSelf.length - 1];
-          this.nombre = marcaAny.nombre;
-
-          this.marcas.push(new Marca(this.id, this.nombre));
+      (datos: Marca[]) => {
+        datos.forEach((marca:Marca) => {
+          this.marcas.push(new Marca(marca.id, marca.nombre));
         });
       }
     );
@@ -59,7 +53,7 @@ export class NuevoCocheComponent implements OnInit {
       this.coche.matricula = this.nuevoCoche.value.matricula;
       this.coche.modelo = this.nuevoCoche.value.modelo;
 
-      this.service.postCoche({modelo: this.coche.modelo, matricula: this.coche.matricula, marca: "http://localhost:8080/marcas/" + this.coche.marca}). subscribe();
+      this.service.postCoche({modelo: this.coche.modelo, matricula: this.coche.matricula, marca: {id: this.coche.marca}}). subscribe();
 
       this.router.navigate(['/principal/lista/' + this.coche.marca]);
     }
