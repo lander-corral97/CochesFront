@@ -53,7 +53,7 @@ export class NuevoCocheComponent implements OnInit {
       this.coche.matricula = this.nuevoCoche.value.matricula;
       this.coche.modelo = this.nuevoCoche.value.modelo;
 
-      this.service.postCoche({modelo: this.coche.modelo, matricula: this.coche.matricula, marca: {id: this.coche.marca}}). subscribe();
+      this.service.postCoche({modelo: this.coche.modelo, matricula: this.coche.matricula, marca: {id: this.coche.marca}}).subscribe();
 
       this.router.navigate(['/principal/lista/' + this.coche.marca]);
     }
