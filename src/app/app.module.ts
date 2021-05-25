@@ -9,6 +9,7 @@ import { HeaderComponent } from './core/header/header.component';
 import { ListaLinksComponent } from './core/lista-links/lista-links.component';
 
 import { PrincipalModule } from './modules/principal/principal.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PrincipalModule } from './modules/principal/principal.module';
     PrincipalModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
