@@ -1,6 +1,6 @@
 <h3>Listado</h3>
 <form [formGroup]="marcaForm" (ngSubmit)="redirigir()">
-  <div class="form-group row w-50">
+  <div class="form-group row w-75">
     <label for="marcas" class="col-lg-3 col-12">Marca:</label>
     <select id="marcas" formControlName="marcas" class="col-lg-6 col-12" [value]='1'>
       <option [value]="marca.id" *ngFor="let marca of marcas">{{marca.nombre}}</option>
@@ -11,14 +11,22 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">Modelo</th>
-        <th scope="col">Matrícula</th>
+        <th style="width:45%" scope="col">Modelo</th>
+        <th style="width:45%" scope="col">Matrícula</th>
+        <th style="width:10%" scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let coche of coches">
         <td>{{coche.modelo}}</td>
         <td>{{coche.matricula}}</td>
+        <td class="d-flex justify-content-around">
+          <a [routerLink]="['/principal/lista', coche.marca.id]"><fa-icon class="text-success" [icon]="modificar"></fa-icon></a>
+          <a [routerLink]="['/principal/lista', coche.marca.id]"><fa-icon class="text-danger" [icon]="borrar"></fa-icon></a>
+        </td>
       </tr>
     </tbody>
   </table>
+<div class="w-75 text-center">
+  <a (click)="subirFilenet()" class="btn btn-primary">Subir a Filenet</a>
+</div>

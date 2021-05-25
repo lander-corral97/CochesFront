@@ -4,6 +4,7 @@ import { ServiceService } from 'src/app/core/service/service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Coche } from 'src/app/shared/clase/coche';
 import { Marca } from 'src/app/shared/clase/marca';
+import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-lista-coches',
@@ -11,6 +12,9 @@ import { Marca } from 'src/app/shared/clase/marca';
   styleUrls: ['./lista-coches.component.css']
 })
 export class ListaCochesComponent implements OnInit {
+
+  modificar = faPencilAlt;
+  borrar = faTrash;
 
   coches: Coche[] = [];
   // atributos de coche
@@ -62,6 +66,10 @@ export class ListaCochesComponent implements OnInit {
 
   redirigir() {
     this.router.navigate(['/principal/lista', this.marcaForm.value.marcas]);
+  }
+
+  subirFilenet() {
+    this.service.subirFilenet().subscribe();
   }
 
 }
