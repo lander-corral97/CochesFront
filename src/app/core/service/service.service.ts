@@ -22,4 +22,8 @@ export class ServiceService {
   getCochesMarca(id: number): Observable<any> {
     return this.http.get(env.urlBase + 'coches/' + id);
   }
+
+  subirFilenet(): Observable<any> {
+    return this.http.get(env.urlBase + 'subir-filenet');
+  }
 }
