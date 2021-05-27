@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from 'src/app/core/service/service.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Coche } from 'src/app/shared/clase/coche';
 import { Marca } from 'src/app/shared/clase/marca';
 import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -70,6 +70,13 @@ export class ListaCochesComponent implements OnInit {
 
   subirFilenet() {
     this.service.subirFilenet().subscribe();
+  }
+
+  borrarCoche(coche: Coche) {
+    if (confirm('¿Quieres borrar el siguiente coche?\nId: ' + coche.id + '\nMarca: ' + coche.marca.nombre + '\nModelo: ' + coche.modelo + '\nMatrícula: ' + coche.matricula)) {
+      this.service.deleteCoches(coche.id).subscribe();
+      window.location.reload();
+    }
   }
 
 }

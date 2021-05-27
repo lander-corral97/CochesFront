@@ -21,8 +21,8 @@
         <td>{{coche.modelo}}</td>
         <td>{{coche.matricula}}</td>
         <td class="d-flex justify-content-around">
-          <a [routerLink]="['/principal/lista', coche.marca.id]"><fa-icon class="text-success" [icon]="modificar"></fa-icon></a>
-          <a [routerLink]="['/principal/lista', coche.marca.id]"><fa-icon class="text-danger" [icon]="borrar"></fa-icon></a>
+          <a [routerLink]="['/principal/modificar', coche.id]"><fa-icon class="text-success" [icon]="modificar"></fa-icon></a>
+          <a style="cursor: pointer" (click)="borrarCoche(coche)"><fa-icon class="text-danger" [icon]="borrar"></fa-icon></a>
         </td>
       </tr>
     </tbody>
