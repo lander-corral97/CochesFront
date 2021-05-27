@@ -20,7 +20,19 @@ export class ServiceService {
   }
 
   getCochesMarca(id: number): Observable<any> {
+    return this.http.get(env.urlBase + 'coches/marca/' + id);
+  }
+
+  getCocheById(id: number): Observable<any> {
     return this.http.get(env.urlBase + 'coches/' + id);
+  }
+
+  putCoches(body: any) : Observable<any> {
+    return this.http.put(env.urlBase + 'coches', body);
+  }
+
+  deleteCoches(id: number): Observable<any> {
+    return this.http.delete(env.urlBase + "coches/" + id)
   }
 
   subirFilenet(): Observable<any> {
