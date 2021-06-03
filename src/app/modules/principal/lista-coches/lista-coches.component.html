@@ -9,24 +9,28 @@
   </div>
 </form>
 <table class="table">
-    <thead>
-      <tr>
-        <th style="width:45%" scope="col">Modelo</th>
-        <th style="width:45%" scope="col">Matrícula</th>
-        <th style="width:10%" scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let coche of coches">
-        <td>{{coche.modelo}}</td>
-        <td>{{coche.matricula}}</td>
-        <td class="d-flex justify-content-around">
-          <a [routerLink]="['/principal/modificar', coche.id]"><fa-icon class="text-success" [icon]="modificar"></fa-icon></a>
-          <a style="cursor: pointer" (click)="borrarCoche(coche)"><fa-icon class="text-danger" [icon]="borrar"></fa-icon></a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th style="width:45%" scope="col">Modelo</th>
+      <th style="width:45%" scope="col">Matrícula</th>
+      <th style="width:10%" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let coche of coches">
+      <td>{{coche.modelo}}</td>
+      <td>{{coche.matricula}}</td>
+      <td class="d-flex justify-content-around">
+        <a [routerLink]="['/principal/modificar', coche.id]">
+          <fa-icon class="text-success" [icon]="modificar"></fa-icon>
+        </a>
+        <a style="cursor: pointer" (click)="borrarCoche(coche)">
+          <fa-icon class="text-danger" [icon]="borrar"></fa-icon>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <div class="w-75 text-center">
   <a (click)="subirFilenet()" class="btn btn-primary">Subir a Filenet</a>
 </div>

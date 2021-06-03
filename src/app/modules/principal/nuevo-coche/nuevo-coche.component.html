@@ -11,7 +11,7 @@
     <input formControlName="modelo" type="text" class="form-control col-lg-9 col-12" id="modelo"
       aria-describedby="modelo" placeholder="Introduce el modelo">
   </div>
-  <div  class="m-0" *ngIf="f.modelo.invalid && (f.modelo.dirty || f.modelo.touched)">
+  <div class="m-0" *ngIf="f.modelo.invalid && (f.modelo.dirty || f.modelo.touched)">
     <div *ngIf="f.matricula.errors">
       <span class="text-danger">La matrícula es requerida</span>
     </div>

@@ -25,7 +25,11 @@ export class NuevoCocheComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private ruta: ActivatedRoute
-  ) {}
+  ) {
+    if (localStorage.getItem("token") == null) {
+      this.router.navigate(['/login']);
+    }
+  }
 
   ngOnInit(): void {
     this.service.getMarcas().subscribe((datos: Marca[]) => {
