@@ -1,9 +1,17 @@
 <app-header></app-header>
 <main class="d-flex flex-wrap">
-    <app-lista-links class="w-25"></app-lista-links>
-    <div class="w-75 router">
-        <div class="p-5">
+    <div *ngIf="router == '/login'; then Login else NotLogin"></div>
+    <ng-template #NotLogin>
+        <app-lista-links class="w-25"></app-lista-links>
+        <div class="w-75 router">
+            <div class="p-5">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #Login>
+        <div class="w-25 pt-5 mx-auto">
             <router-outlet></router-outlet>
         </div>
-    </div>
+    </ng-template>
 </main>
