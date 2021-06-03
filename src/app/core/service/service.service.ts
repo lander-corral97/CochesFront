@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { env } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Marca } from 'src/app/shared/clase/marca';
 
@@ -37,5 +37,9 @@ export class ServiceService {
 
   subirFilenet(): Observable<any> {
     return this.http.get(env.urlBase + 'subir-filenet');
+  }
+
+  login(usuario: string, password: string): Observable<any> {
+    return this.http.get(env.urlBase + 'login?usuario=' + usuario + '&password=' + password, { responseType: 'text' });
   }
 }
